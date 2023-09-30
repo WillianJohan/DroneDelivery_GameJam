@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -655,13 +656,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.021814892, y: 0, z: 0, w: 0.999762}
+  m_LocalRotation: {x: 0.021814894, y: -0, z: -0, w: 0.99976206}
   m_LocalPosition: {x: 0, y: 2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 6347236550065839768}
   m_LocalEulerAnglesHint: {x: 2.5, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa604853e100c54eaed2997b6c6b5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainCamera: {fileID: 963194227}
+  TargetView: {fileID: 6347236550065839772}
+  Offset: {x: 0, y: 0, z: -10}
+  SmoothSpeed: 0.125
 --- !u!1 &1259483182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,6 +1831,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 760291062940145425, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 963194228}
     - targetCorrespondingSourceObject: {fileID: 6701563257814741992, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1860427862}
@@ -1831,6 +1851,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6347236550065839774}
   m_SourcePrefab: {fileID: 100100000, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
+--- !u!4 &6347236550065839768 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 760291062940145425, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
+  m_PrefabInstance: {fileID: 6347236550065839767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &6347236550065839771 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8386184157892172035, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
@@ -1956,7 +1981,6 @@ BoxCollider2D:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 6347236550065839767}
   - {fileID: 333867961}
