@@ -1081,7 +1081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1831768272
 Transform:
   m_ObjectHideFlags: 0
@@ -1499,7 +1499,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 3
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1749,19 +1749,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7133025781699543426, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
       propertyPath: weight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7133025781699543426, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
       propertyPath: balance
-      value: 1.03
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7133025781699543426, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
       propertyPath: aceleration
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7133025781699543426, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
       propertyPath: maxVelocity
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7511357124097455231, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
       propertyPath: m_Color.b
