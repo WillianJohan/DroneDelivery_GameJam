@@ -1480,7 +1480,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 1911657514758211828}
   TargetView: {fileID: 6701563257814741992}
-  Offset: {x: 5, y: 0, z: -10}
+  targetPhysics: {fileID: 8386184157892172035}
+  DefaultOffset: {x: 5, y: 0, z: -7}
+  dynamicOffsetByPlayerDirection: 1
   SmoothSpeed: 0.125
 --- !u!1 &9070457693225550440
 GameObject:
