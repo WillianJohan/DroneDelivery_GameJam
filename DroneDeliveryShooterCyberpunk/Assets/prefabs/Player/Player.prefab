@@ -197,6 +197,7 @@ MonoBehaviour:
   inputDirection: {x: 0, y: 0, z: 0}
   cam: {fileID: 1911657514758211828}
   defaultMaxDroneHeight: 2.43
+  verticalBonusAceleration: 100
   aceleration: 40
   maxVelocity: 50
   weight: 0.3
@@ -448,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6065a0d618ea0247bee90ee0a185758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerHook: 0
   RigidBodyToAttach: {fileID: 8386184157892172035}
 --- !u!1 &8426509725458522500
 GameObject:

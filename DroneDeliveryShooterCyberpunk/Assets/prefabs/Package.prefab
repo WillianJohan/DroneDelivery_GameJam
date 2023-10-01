@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6065a0d618ea0247bee90ee0a185758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerHook: 0
   RigidBodyToAttach: {fileID: 4184574008113091682}
 --- !u!114 &8379255727765861502
 MonoBehaviour:
@@ -311,7 +312,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.2
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1

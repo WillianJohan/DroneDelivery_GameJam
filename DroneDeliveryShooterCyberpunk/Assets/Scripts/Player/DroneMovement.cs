@@ -31,6 +31,7 @@ namespace Drone
         }
 
         [Header("Características da mobilidade do drone")]
+        [SerializeField] float verticalBonusAceleration = 100.0f;
         [SerializeField] float aceleration = 50.0f;
         [SerializeField] float maxVelocity = 250.0f;
         [SerializeField] float weight = 10.0f;
@@ -39,7 +40,7 @@ namespace Drone
         void Start()
         {
             if (!rb) GetComponent<Rigidbody2D>();
-            UpdateMobility(aceleration, maxVelocity, weight, balance);
+            UpdateMobility(verticalBonusAceleration, aceleration, maxVelocity, weight, balance);
         }
 
         void Update()
@@ -48,7 +49,7 @@ namespace Drone
 
 #if UNITY_EDITOR
             // Comandos para fins de DEBUG
-            if (Input.GetKeyDown(KeyCode.U)) UpdateMobility(aceleration, maxVelocity, weight, balance);
+            if (Input.GetKeyDown(KeyCode.U)) UpdateMobility(verticalBonusAceleration, aceleration, maxVelocity, weight, balance);
             if (Input.GetKeyDown(KeyCode.I))
             {
                 rb.velocity = new Vector2();
@@ -61,10 +62,10 @@ namespace Drone
         void FixedUpdate()
         {
             Vector3 newVelocity = rb.velocity;
-            newVelocity.x += Mathf.Clamp(inputDirection.x * aceleration * Time.deltaTime, -maxVelocity, maxVelocity);
-            newVelocity.y += Mathf.Clamp(inputDirection.y * aceleration * Time.deltaTime, -maxVelocity, maxVelocity);
+            newVelocity.x += horizontalVelocity();
+            newVelocity.y += verticalVelocity();
 
-            if(newVelocity.y > 0 && rb.transform.position.y >= MaxDroneHeight)
+            if (newVelocity.y > 0 && rb.transform.position.y >= MaxDroneHeight)
             {
                 newVelocity.y = 0;
             }
@@ -72,10 +73,23 @@ namespace Drone
             rb.velocity = newVelocity;
         }
 
-
-
-        public void UpdateMobility(float newAceleration = 0, float newMaxVelocity = 0, float newWeight = 10, float newBalance = 1.0f)
+        float horizontalVelocity() => Mathf.Clamp(inputDirection.x * aceleration * Time.deltaTime, -maxVelocity, maxVelocity);
+        float verticalVelocity()
         {
+            float newTorque = 0.0f;
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            {
+                newTorque = verticalBonusAceleration;
+                Debug.Log("teste");
+            }
+
+            return Mathf.Clamp(inputDirection.y * (aceleration + newTorque) * Time.deltaTime, -maxVelocity, maxVelocity);
+        }
+
+
+        public void UpdateMobility(float newVerticalTorque = 0, float newAceleration = 0, float newMaxVelocity = 0, float newWeight = 10, float newBalance = 1.0f)
+        {
+            verticalBonusAceleration = newVerticalTorque;
             maxVelocity = newMaxVelocity;
             weight = newWeight;
             aceleration = newAceleration;
