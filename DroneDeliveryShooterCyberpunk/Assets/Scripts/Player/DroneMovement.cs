@@ -78,10 +78,7 @@ namespace Drone
         {
             float newTorque = 0.0f;
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-            {
                 newTorque = verticalBonusAceleration;
-                Debug.Log("teste");
-            }
 
             return Mathf.Clamp(inputDirection.y * (aceleration + newTorque) * Time.deltaTime, -maxVelocity, maxVelocity);
         }

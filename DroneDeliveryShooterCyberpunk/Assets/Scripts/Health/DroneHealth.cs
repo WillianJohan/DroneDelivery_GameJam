@@ -7,6 +7,7 @@ public class DroneHealth : MonoBehaviour, IDamageable
 
     public virtual void DealDamage(uint damageAmount)
     {
+        Debug.Log("Drone HIT! " + damageAmount);
         HandleOnDamage((int)damageAmount);
     }
 

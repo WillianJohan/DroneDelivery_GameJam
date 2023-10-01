@@ -16,6 +16,7 @@ public class PackageHealth : MonoBehaviour, IDamageable
 
     public void DealDamage(uint damageAmount)
     {
+        Debug.Log("Package HIT! " + damageAmount);
         currentHealth -= (int)damageAmount;
         HandleOnDamage((int)damageAmount);
         if (currentHealth <= 0)
