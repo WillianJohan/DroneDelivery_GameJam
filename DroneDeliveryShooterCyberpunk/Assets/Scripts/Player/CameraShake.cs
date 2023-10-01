@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
 	[SerializeField] Drone.CameraController cameraController; 
-	[SerializeField] Health playerHealthScript;
+	[SerializeField] DroneHealth playerHealthScript;
 	[SerializeField] Transform camTransform;
 
 	[Header("On Damage")]

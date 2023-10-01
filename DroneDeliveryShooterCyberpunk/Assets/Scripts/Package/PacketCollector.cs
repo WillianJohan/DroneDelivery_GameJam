@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +11,19 @@ public class PacketCollector : MonoBehaviour
     {
         if (!RigidBodyToAttach)
         {
-            RigidBodyToAttach = GetComponent<Rigidbody2D>();
+            TryGetComponent<Rigidbody2D>(out RigidBodyToAttach);
         }
     }
 
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        // detecta se o colider representa um pacote
+        Debug.Log(collision.gameObject.name);
+
+
+
     }
 
 }
