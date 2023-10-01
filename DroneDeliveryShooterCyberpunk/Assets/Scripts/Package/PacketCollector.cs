@@ -8,6 +8,8 @@ public class PacketCollector : MonoBehaviour
 {
     [SerializeField] bool isPlayerHook = false;
     public Rigidbody2D RigidBodyToAttach;
+    
+    [SerializeField] PackageAttatcher myAttatcher;
 
     // public PackageAttatcher AllCollected;
 
@@ -29,10 +31,16 @@ public class PacketCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.TryGetComponent<PackageAttatcher>(out PackageAttatcher attatcher);
-        if (attatcher != null)
+        collision.TryGetComponent<PackageAttatcher>(out PackageAttatcher otherAttatcher);
+        if (otherAttatcher != null)
         {
-            bool isCollected = attatcher.Attach(RigidBodyToAttach);
+            if (!isPlayerHook)
+            {
+                if (!myAttatcher.IsAtatched)
+                    return;
+            }
+            
+            bool isCollected = otherAttatcher.Attach(RigidBodyToAttach);
             // if (isCollected) AllCollected.Add(attatcher);
         }
     }

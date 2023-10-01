@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerHook: 0
   RigidBodyToAttach: {fileID: 4184574008113091682}
+  myAttatcher: {fileID: 8379255727765861502}
 --- !u!114 &8379255727765861502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +229,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4099692253532924341}
+  - component: {fileID: 5484742994561394957}
+  - component: {fileID: 9062210338310733262}
   - component: {fileID: 1869415416530581001}
   - component: {fileID: 4184574008113091682}
   - component: {fileID: 7873373884209920190}
@@ -255,6 +258,35 @@ Transform:
   - {fileID: 2815171761881802121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5484742994561394957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6025272611716003539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d961ca9d7eaf3c4da7558d47226755a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionForceForLowDamage: 4
+  collisionForceForMediumDamage: 8
+  collisionForceForHighDamage: 10
+--- !u!114 &9062210338310733262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6025272611716003539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2de3dd453ba207458d8bed50ec6249c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 3
+  currentHealth: 3
 --- !u!61 &1869415416530581001
 BoxCollider2D:
   m_ObjectHideFlags: 0
