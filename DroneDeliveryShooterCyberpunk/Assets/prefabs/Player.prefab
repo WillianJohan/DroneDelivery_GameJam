@@ -878,7 +878,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8386184157892172035}
   inputDirection: {x: 0, y: 0, z: 0}
-  maxDroneHeight: 5
+  cam: {fileID: 1911657514758211828}
+  defaultMaxDroneHeight: 2.43
   aceleration: 50
   maxVelocity: 150
   weight: 0
@@ -1306,6 +1307,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6938829069476986194}
+  - component: {fileID: 8009287771618228424}
+  - component: {fileID: 3434362928616105575}
   m_Layer: 0
   m_Name: Hook
   m_TagString: Untagged
@@ -1328,6 +1331,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6701563257814741992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &8009287771618228424
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726002599065034568}
+  m_BodyType: 1
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &3434362928616105575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726002599065034568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6065a0d618ea0247bee90ee0a185758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8426509725458522500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1479,7 @@ MonoBehaviour:
   TargetView: {fileID: 6701563257814741992}
   targetPhysics: {fileID: 8386184157892172035}
   DefaultOffset: {x: 0, y: 0, z: -7}
+  onlyHorizontalMovement: 1
   dynamicOffsetByPlayerDirection: 0
   SmoothSpeed: 0.125
 --- !u!1 &9070457693225550440

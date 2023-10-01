@@ -10,6 +10,7 @@ namespace Drone
         [SerializeField] Transform TargetView;
         [SerializeField] Rigidbody2D targetPhysics; 
         [SerializeField] Vector3 DefaultOffset = new Vector3(0, 0, -7.0f);
+        [SerializeField] bool onlyHorizontalMovement = true;
         [SerializeField] bool dynamicOffsetByPlayerDirection = true;
         [SerializeField] float SmoothSpeed = 0.125f;
         
@@ -21,13 +22,22 @@ namespace Drone
         }
 
         public Vector3 CameraDesiredPosition { get {
+                Vector3 desired;
                 if (dynamicOffsetByPlayerDirection) {
                     float horizontalDirection = Input.GetAxisRaw("Horizontal");
                     float target_x = Mathf.Clamp(horizontalDirection * DefaultOffset.x, -DefaultOffset.x, DefaultOffset.x);
                     dynamicOffset.x = Mathf.Lerp(dynamicOffset.x, target_x, .1f);
-                    return TargetView.transform.position + dynamicOffset;
+                    desired = TargetView.transform.position + dynamicOffset;
                 }
-                return TargetView.transform.position + DefaultOffset;
+                else
+                {
+                    desired = TargetView.transform.position + DefaultOffset;
+                }
+
+                if (onlyHorizontalMovement) 
+                    desired.y = DefaultOffset.y;
+
+                return desired;
             } 
         }
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Drone
@@ -10,9 +11,24 @@ namespace Drone
 
         [SerializeField] // input Direction -> updated every second
         Vector3 inputDirection = Vector3.zero;
+        [SerializeField]
+        Camera cam;
 
         [SerializeField]
-        float maxDroneHeight = 2.43f;
+        float defaultMaxDroneHeight = 2.43f;
+        bool setMaxDroneHeightByCameraViewport = true;
+
+        public float MaxDroneHeight
+        {
+            get {
+                if (setMaxDroneHeightByCameraViewport && cam != null)
+                {
+                    Vector3 cameraViewPort = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
+                    return cameraViewPort.y - 1.8f; // subtração para compensar o tamanho do drone
+                }
+                return defaultMaxDroneHeight;
+            }
+        }
 
         [Header("Características da mobilidade do drone")]
         [SerializeField] float aceleration = 50.0f;
@@ -48,7 +64,7 @@ namespace Drone
             newVelocity.x += Mathf.Clamp(inputDirection.x * aceleration * Time.deltaTime, -maxVelocity, maxVelocity);
             newVelocity.y += Mathf.Clamp(inputDirection.y * aceleration * Time.deltaTime, -maxVelocity, maxVelocity);
 
-            if(newVelocity.y > 0 && rb.transform.position.y >= maxDroneHeight)
+            if(newVelocity.y > 0 && rb.transform.position.y >= MaxDroneHeight)
             {
                 newVelocity.y = 0;
             }
@@ -68,5 +84,6 @@ namespace Drone
             rb.drag = balance;
             rb.gravityScale = weight / 10;
         }
+
     }
 }
