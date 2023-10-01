@@ -20,7 +20,6 @@ public class PackageHealth : MonoBehaviour, IDamageable
         HandleOnDamage((int)damageAmount);
         if (currentHealth <= 0)
             HandleOnDie();
-
     }
 
     protected virtual void HandleOnDamage(int value) => OnDamage?.Invoke(value);
