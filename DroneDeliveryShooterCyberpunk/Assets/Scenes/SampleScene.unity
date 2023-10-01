@@ -4637,6 +4637,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518483686930506809, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133025781699543426, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
+      propertyPath: weight
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133025781699543426, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
+      propertyPath: balance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133025781699543426, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
+      propertyPath: aceleration
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133025781699543426, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
+      propertyPath: maxVelocity
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7511357124097455231, guid: b1eabdc87db27764bb5dfe20edce9ca1, type: 3}
       propertyPath: m_Enabled
       value: 0
