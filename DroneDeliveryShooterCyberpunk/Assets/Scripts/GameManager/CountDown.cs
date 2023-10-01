@@ -17,13 +17,11 @@ public class CountDown : MonoBehaviour
         //ButtonBehaviour.OnButtonDown += HandleButtonDown;
         OnFinishedTime += HandleFinishedTime;
         SecondsDisplay.text = "Seconds: " + TotalSeconds.ToString();
-        StartCounter();
     }
 
     private void OnDestroy()
     {
         OnFinishedTime -= HandleFinishedTime;
-        //ButtonBehaviour.OnButtonDown -= HandleButtonDown;
     }
 
     void Update()
@@ -39,12 +37,6 @@ public class CountDown : MonoBehaviour
             SecondsDisplay.text = (TotalSeconds - ElapsedSeconds).ToString().Substring(0, 4) + "s";
     }
 
-    void HandleButtonDown() //renomear para sair da area
-    {
-        //ButtonBehaviour.OnButtonDown -= HandleButtonDown;
-        StartCounter();
-    }
-
     void HandleFinishedTime()
     {
         IsStarded = false;
@@ -52,7 +44,7 @@ public class CountDown : MonoBehaviour
         SecondsDisplay.text = "0";
     }
 
-    void StartCounter()
+    public void StartCounter()
     {
         ElapsedSeconds = 0;
         IsStarded = true;

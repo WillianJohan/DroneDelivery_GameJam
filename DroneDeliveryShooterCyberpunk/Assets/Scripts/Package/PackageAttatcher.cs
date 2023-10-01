@@ -7,6 +7,8 @@ public class PackageAttatcher : MonoBehaviour
     [SerializeField] Rigidbody2D packageRigidBody;
     [SerializeField] SpringJoint2D springJoint2D;
     
+    public Rigidbody2D PackageRigidBody {  get { return packageRigidBody; } }
+
     public bool IsAtatched
     {
         get { return (springJoint2D != null && springJoint2D.connectedBody != null);}
