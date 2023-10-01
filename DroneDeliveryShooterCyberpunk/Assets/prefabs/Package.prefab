@@ -134,6 +134,7 @@ MonoBehaviour:
   isPlayerHook: 0
   RigidBodyToAttach: {fileID: 4184574008113091682}
   myAttatcher: {fileID: 8379255727765861502}
+  myPackageHealth: {fileID: 9062210338310733262}
 --- !u!114 &8379255727765861502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,9 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d961ca9d7eaf3c4da7558d47226755a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionForceForLowDamage: 4
-  collisionForceForMediumDamage: 8
-  collisionForceForHighDamage: 10
+  collisionForceForLowDamage: 9
+  collisionForceForMediumDamage: 15
+  collisionForceForHighDamage: 30
 --- !u!114 &9062210338310733262
 MonoBehaviour:
   m_ObjectHideFlags: 0

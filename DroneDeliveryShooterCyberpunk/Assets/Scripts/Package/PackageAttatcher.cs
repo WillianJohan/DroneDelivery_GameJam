@@ -23,7 +23,7 @@ public class PackageAttatcher : MonoBehaviour
 
     private void OnDestroy()
     {
-        // remove eventos
+        // Disconnect();
     }
 
 

@@ -23,6 +23,10 @@ public class PackageHealth : MonoBehaviour, IDamageable
     }
 
     protected virtual void HandleOnDamage(int value) => OnDamage?.Invoke(value);
-    protected virtual void HandleOnDie() => OnDestroy?.Invoke();
+    protected virtual void HandleOnDie()
+    {
+        OnDestroy?.Invoke();
+        Destroy(gameObject, 0.2f);
+    }
 
 }
