@@ -10,8 +10,7 @@ public class PacketCollector : MonoBehaviour
     public Rigidbody2D RigidBodyToAttach;
     
     [SerializeField] PackageAttatcher myAttatcher;
-
-    // public PackageAttatcher AllCollected;
+    List<PackageAttatcher> connectedPackage = new List<PackageAttatcher>();
 
     void Start()
     {
@@ -19,17 +18,29 @@ public class PacketCollector : MonoBehaviour
         {
             TryGetComponent<Rigidbody2D>(out RigidBodyToAttach);
         }
+
+        if (!isPlayerHook && myAttatcher == null)
+        {
+            TryGetComponent<PackageAttatcher>(out myAttatcher);
+        }
     }
 
     private void Update()
     {
-        // if(Input.GetKeyUp(KeyCode.Space) && isPlayerHook) {
-        //     PackageAttatcher pk = AllCollected.Last();
-        //     pk.
-        // }
+        //if (!isPlayerHook) return;
+        if(Input.GetKeyUp(KeyCode.Space) && connectedPackage != null) {
+            disconnectPackage();
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void disconnectPackage()
+    {
+        for(int i = 0; i < connectedPackage.Count; i++)
+            connectedPackage[i].Disconnect();
+        connectedPackage.Clear();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         collision.TryGetComponent<PackageAttatcher>(out PackageAttatcher otherAttatcher);
         if (otherAttatcher != null)
@@ -40,8 +51,8 @@ public class PacketCollector : MonoBehaviour
                     return;
             }
             
-            bool isCollected = otherAttatcher.Attach(RigidBodyToAttach);
-            // if (isCollected) AllCollected.Add(attatcher);
+            bool isCollected = otherAttatcher.Connect(RigidBodyToAttach);
+            if (isCollected) connectedPackage.Add(otherAttatcher);
         }
     }
 

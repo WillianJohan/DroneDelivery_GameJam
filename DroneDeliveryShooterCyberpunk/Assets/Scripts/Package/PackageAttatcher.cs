@@ -27,15 +27,22 @@ public class PackageAttatcher : MonoBehaviour
     }
 
 
-    public bool Attach(Rigidbody2D rbToAttatch)
+    public bool Connect(Rigidbody2D rbToAttatch)
     {
         if (springJoint2D.connectedBody == null)
         {
-            Debug.Log("Attatched!!");
+            Debug.Log("Connected!!");
             springJoint2D.connectedBody = rbToAttatch;
             return true;
         }
         return false;
+    }
+
+    public bool Disconnect()
+    {
+        springJoint2D.connectedBody = null;
+        Debug.Log("Desconected!!");
+        return true;
     }
 
 }

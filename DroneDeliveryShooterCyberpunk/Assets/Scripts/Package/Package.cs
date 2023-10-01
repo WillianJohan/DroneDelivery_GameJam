@@ -6,6 +6,7 @@ public class Package : MonoBehaviour, IPackage
 {
 
     // hit sound
-    // 
+    // onDieInstanceEffect
+    // Package Points
 
 }
