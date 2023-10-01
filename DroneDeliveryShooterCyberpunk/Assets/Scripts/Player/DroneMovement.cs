@@ -50,7 +50,6 @@ namespace Drone
 
             if(newVelocity.y > 0 && rb.transform.position.y >= maxDroneHeight)
             {
-                Debug.Log("vel" + newVelocity.y + " rb: " + rb.transform.position.y + " transform: " + transform.position.y);
                 newVelocity.y = 0;
             }
 
