@@ -7,13 +7,8 @@ using UnityEngine;
 public class OnHitDamage : MonoBehaviour
 {
 
-    public uint damage;
+    public uint damage = 100;
     public float impactForce = 10.0f;
-
-    //void performDamage()
-    //{
-    //
-    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,9 +19,13 @@ public class OnHitDamage : MonoBehaviour
             otherRigidbody.velocity = Vector3.zero;
             otherRigidbody.AddForce(direction * impactForce, ForceMode2D.Impulse);
         }
-        
-        TryGetComponent<IDamageable>(out IDamageable damageble);
-        if (damageble != null) damageble.DealDamage(damage);
+
+        other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageble);
+        if (damageble != null)
+        {
+            Debug.Log("VAI DAR DANO");
+            damageble.DealDamage(damage);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -35,7 +34,11 @@ public class OnHitDamage : MonoBehaviour
         other.rigidbody.velocity = Vector3.zero;
         other.rigidbody.AddForce(direction * impactForce, ForceMode2D.Impulse);
 
-        TryGetComponent<IDamageable>(out IDamageable damageble);
-        if(damageble != null) damageble.DealDamage(damage);
+        other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageble);
+        if (damageble != null)
+        {
+            Debug.Log("VAI DAR DANO");
+            damageble.DealDamage(damage);
+        }
     }
 }

@@ -23,7 +23,7 @@ public class PackageHitDetector : MonoBehaviour
         if (!performDamage)
             return;
 
-        Debug.Log("perform Damage");
+        //Debug.Log("perform Damage");
 
         if (collision.relativeVelocity.magnitude >= collisionForceForHighDamage) packageHealth.DealDamage(3);
         else if (collision.relativeVelocity.magnitude >= collisionForceForMediumDamage) packageHealth.DealDamage(2);

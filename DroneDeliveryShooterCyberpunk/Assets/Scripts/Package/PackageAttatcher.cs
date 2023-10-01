@@ -15,17 +15,22 @@ public class PackageAttatcher : MonoBehaviour
 
     private void Start()
     {
-        if(packageRigidBody == null)
+        if (packageRigidBody == null)
             packageRigidBody = GetComponent<Rigidbody2D>();
-        
-        // registra os eventos de morte do drone
+
+        //springJoint2D.connectedAnchor = transform.position;
+        //springJoint2D.distance = transform.position.y + 1;
+        //springJoint2D.autoConfigureDistance = false;
     }
 
-    private void OnDestroy()
+    private void Update()
     {
-        // Disconnect();
+        //if (!IsAtatched)
+        //{
+        //    springJoint2D.connectedAnchor = transform.position;
+        //    springJoint2D.distance = transform.position.y + 1;
+        //}
     }
-
 
     public bool Connect(Rigidbody2D rbToAttatch)
     {
@@ -33,6 +38,7 @@ public class PackageAttatcher : MonoBehaviour
         {
             Debug.Log("Connected!!");
             springJoint2D.connectedBody = rbToAttatch;
+            //springJoint2D.autoConfigureDistance = true;
             return true;
         }
         return false;
@@ -41,6 +47,8 @@ public class PackageAttatcher : MonoBehaviour
     public bool Disconnect()
     {
         springJoint2D.connectedBody = null;
+        //springJoint2D.distance = transform.position.y + 1;
+        //springJoint2D.autoConfigureDistance = false;
         Debug.Log("Desconected!!");
         return true;
     }

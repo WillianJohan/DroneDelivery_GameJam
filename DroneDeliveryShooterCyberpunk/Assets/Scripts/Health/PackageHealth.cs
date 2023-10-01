@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PackageHealth : MonoBehaviour, IDamageable
@@ -6,12 +7,17 @@ public class PackageHealth : MonoBehaviour, IDamageable
     [SerializeField] uint maxLife = 3;
     [SerializeField] int currentHealth = 3;
 
+    
+    [SerializeField] Sprite[] packageHealthStages = new Sprite[3];
+    [SerializeField] SpriteRenderer graphic;
+
     public event Action<int> OnDamage;
     public event Action OnDestroy;
 
     void Start()
     {
         currentHealth = (int)maxLife;
+        setGraphic();
     }
 
     public void DealDamage(uint damageAmount)
@@ -23,7 +29,18 @@ public class PackageHealth : MonoBehaviour, IDamageable
             HandleOnDie();
     }
 
-    protected virtual void HandleOnDamage(int value) => OnDamage?.Invoke(value);
+    void setGraphic()
+    {
+        if (graphic == null) return;
+        graphic.sprite = packageHealthStages[Mathf.Clamp(currentHealth, 0, 2)];
+    }
+
+    protected virtual void HandleOnDamage(int value)
+    {
+        setGraphic();
+        OnDamage?.Invoke(value);
+    }
+
     protected virtual void HandleOnDie()
     {
         OnDestroy?.Invoke();
