@@ -271,6 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d961ca9d7eaf3c4da7558d47226755a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitDetectionLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   collisionForceForLowDamage: 9
   collisionForceForMediumDamage: 15
   collisionForceForHighDamage: 30
