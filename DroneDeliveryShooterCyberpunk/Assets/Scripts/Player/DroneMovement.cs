@@ -11,6 +11,9 @@ namespace Drone
         [SerializeField] // input Direction -> updated every second
         Vector3 inputDirection = Vector3.zero;
 
+        [SerializeField]
+        float maxDroneHeight = 2.43f;
+
         [Header("Características da mobilidade do drone")]
         [SerializeField] float aceleration = 50.0f;
         [SerializeField] float maxVelocity = 250.0f;
@@ -44,6 +47,12 @@ namespace Drone
             Vector3 newVelocity = rb.velocity;
             newVelocity.x += Mathf.Clamp(inputDirection.x * aceleration * Time.deltaTime, -maxVelocity, maxVelocity);
             newVelocity.y += Mathf.Clamp(inputDirection.y * aceleration * Time.deltaTime, -maxVelocity, maxVelocity);
+
+            if(newVelocity.y > 0 && rb.transform.position.y >= maxDroneHeight)
+            {
+                Debug.Log("vel" + newVelocity.y + " rb: " + rb.transform.position.y + " transform: " + transform.position.y);
+                newVelocity.y = 0;
+            }
 
             rb.velocity = newVelocity;
         }
