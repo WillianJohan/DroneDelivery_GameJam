@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class PackageAttatcher : MonoBehaviour
 {
-
-    bool isAtatched = false;
-    public Package package = null;
+    [SerializeField] Rigidbody2D packageRigidBody;
+    [SerializeField] SpringJoint2D springJoint2D;
     
+    public bool isAtatched
+    {
+        get { return (springJoint2D != null && springJoint2D.connectedBody != null);}
+    } 
+
 
     private void Start()
     {
-        // registra os eventos
+        if(packageRigidBody == null)
+            packageRigidBody = GetComponent<Rigidbody2D>();
+        
+        // registra os eventos de morte do drone
     }
 
     private void OnDestroy()
@@ -19,12 +26,16 @@ public class PackageAttatcher : MonoBehaviour
         // remove eventos
     }
 
-    void OnAttach() { }
-    void OnDesattach() { }
 
-    public void Attach(Rigidbody packageCollectorRB)
+    public bool Attach(Rigidbody2D rbToAttatch)
     {
-        
+        if (springJoint2D.connectedBody == null)
+        {
+            Debug.Log("Attatched!!");
+            springJoint2D.connectedBody = rbToAttatch;
+            return true;
+        }
+        return false;
     }
 
 }

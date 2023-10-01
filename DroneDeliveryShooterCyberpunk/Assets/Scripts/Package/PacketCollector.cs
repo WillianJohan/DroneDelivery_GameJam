@@ -19,11 +19,12 @@ public class PacketCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // detecta se o colider representa um pacote
-        Debug.Log(collision.gameObject.name);
-
-
-
+        collision.TryGetComponent<PackageAttatcher>(out PackageAttatcher attatcher);
+        if (attatcher != null)
+        {
+            bool result = attatcher.Attach(RigidBodyToAttach);
+            Debug.Log(result);
+        }
     }
 
 }
