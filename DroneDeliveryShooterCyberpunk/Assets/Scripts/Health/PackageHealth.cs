@@ -10,6 +10,8 @@ public class PackageHealth : MonoBehaviour, IDamageable
     
     [SerializeField] Sprite[] packageHealthStages = new Sprite[3];
     [SerializeField] SpriteRenderer graphic;
+    [SerializeField] AudioSource hitAudioSource;
+    [SerializeField] AudioSource packageDestroyedAudioSource;
 
     public event Action<int> OnDamage;
     public event Action OnDestroy;
@@ -37,12 +39,18 @@ public class PackageHealth : MonoBehaviour, IDamageable
 
     protected virtual void HandleOnDamage(int value)
     {
+        if(hitAudioSource != null)
+            hitAudioSource.Play();
+
         setGraphic();
         OnDamage?.Invoke(value);
     }
 
     protected virtual void HandleOnDie()
     {
+        if(packageDestroyedAudioSource != null) 
+            packageDestroyedAudioSource.Play();
+
         OnDestroy?.Invoke();
         Destroy(gameObject, 0.2f);
     }

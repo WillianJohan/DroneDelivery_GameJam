@@ -4,6 +4,7 @@ using UnityEngine;
 public class DroneHealth : MonoBehaviour, IDamageable
 {
     public event Action<int> OnDamage;
+    [SerializeField] AudioSource droneAudioHitSource;
 
     public virtual void DealDamage(uint damageAmount)
     {
@@ -11,5 +12,11 @@ public class DroneHealth : MonoBehaviour, IDamageable
         HandleOnDamage((int)damageAmount);
     }
 
-    protected virtual void HandleOnDamage(int value) => OnDamage?.Invoke(value);
+    protected virtual void HandleOnDamage(int value)
+    {
+        if(droneAudioHitSource != null)
+            droneAudioHitSource.Play();
+
+        OnDamage?.Invoke(value);
+    }
 }
