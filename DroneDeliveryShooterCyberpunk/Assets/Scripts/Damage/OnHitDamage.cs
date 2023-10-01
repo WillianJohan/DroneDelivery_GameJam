@@ -22,10 +22,7 @@ public class OnHitDamage : MonoBehaviour
 
         other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageble);
         if (damageble != null)
-        {
-            Debug.Log("VAI DAR DANO");
             damageble.DealDamage(damage);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -36,9 +33,6 @@ public class OnHitDamage : MonoBehaviour
 
         other.gameObject.TryGetComponent<IDamageable>(out IDamageable damageble);
         if (damageble != null)
-        {
-            Debug.Log("VAI DAR DANO");
             damageble.DealDamage(damage);
-        }
     }
 }
