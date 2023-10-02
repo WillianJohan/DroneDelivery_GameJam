@@ -2139,7 +2139,7 @@ Animator:
   m_GameObject: {fileID: 260899547}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 469f712346e7ee644a02f8b33081f042, type: 2}
+  m_Controller: {fileID: 9100000, guid: df489b39c0bd85141b4542ec3daa8d84, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2159,7 +2159,7 @@ Animation:
   m_GameObject: {fileID: 260899547}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 060fab37e2aca414b89b0631d31c8994, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 060fab37e2aca414b89b0631d31c8994, type: 2}
   m_WrapMode: 0
@@ -8979,9 +8979,9 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362758047}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 771f4d06298360e48b8a7af42e08eed3, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 771f4d06298360e48b8a7af42e08eed3, type: 2}
   m_WrapMode: 0
@@ -9165,7 +9165,7 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 771f4d06298360e48b8a7af42e08eed3, type: 2}
+  - {fileID: 7400000, guid: 3400988a260537240880e44dae549a07, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -14228,7 +14228,7 @@ Animator:
   m_GameObject: {fileID: 1927039774}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 469f712346e7ee644a02f8b33081f042, type: 2}
+  m_Controller: {fileID: 9100000, guid: cd0b79ae4ce939f4f9fcb182341e966e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14248,7 +14248,7 @@ Animation:
   m_GameObject: {fileID: 1927039774}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 771f4d06298360e48b8a7af42e08eed3, type: 2}
+  m_Animation: {fileID: 7400000, guid: e69fe39a13a1b914dabd294c0adf71ae, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: e69fe39a13a1b914dabd294c0adf71ae, type: 2}
   m_WrapMode: 0
